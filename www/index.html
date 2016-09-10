@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+<!--        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" href="css/phonon.min.css">
+<!--        <link rel="stylesheet" href="css/phonon-base.min.css">-->
+        <title>QR Reader</title>
+    </head>
+    <body>
+         <!-- Panel tags go here -->
+
+        <!-- Side Panel tags go here -->
+
+        <!-- Notification tags go here -->
+
+        <!-- Dialog tags go here -->
+
+
+        <!-- the home page is the default one. This page does not require to call its content because we define on its tag.-->
+        <home data-page="true">
+            
+            <header class="header-bar">
+                <div class="center">
+                    <h1 class="title">QR Reader / Generator</h1>
+                </div>
+            </header>
+            <div class="content">
+
+                <ul class="list">
+                    <li class="divider">Read a code</li>
+                    <li>
+                        <a class="padded-list" href="#!readcode">
+                            <button class="btn fit-parent negative app-btn">GET HOT Deals!</button>
+                        </a>
+                    </li>
+                    <li class="divider">...or...</li>
+                    <li>
+                        <a class="padded-list" href="#!gencode">
+                            <button class="btn btn-flat fit-parent primary app-btn">Gen new QR Code</button>
+                        </a>
+                    </li>
+    
+<!--
+                    <li><a class="padded-list" href="#!pagetwo/funghi">Funghi</a></li>
+-->
+                </ul>
+                
+            </div>
+            <button href="#" class="btn primary fit-parent settings-btn" data-panel-id="myPanelexample">Open Settings</button>  
+            
+            <div id="myPanelexample" class="panel-full">
+                <header class="header-bar pull-left">
+                    <a class="btn icon icon-close pull-right" href="#" data-panel-close="true"></a>
+                    <h1 class="title">Settings</h1>
+                </header>
+
+                <div class="content">
+                   <h1>TODO</h1>
+                    <p class="padded-full">[hw url]</p>
+                    <p class="padded-full">[type? code]</p>
+                    <p class="padded-full">[adv?]</p>
+                    <p class="padded-full">[place]</p>
+                </div>
+            </div>
+
+        </home>
+        
+        <pagetwo data-page="true"></pagetwo>
+        
+        
+        <readcode data-page="true">
+            <header class="header-bar">
+                <a class="btn icon icon-close pull-right" href="#" data-panel-close="true"></a>
+                <h1 class="title pull-left">Scan your discount</h1>
+            </header>
+
+            <div class="content">
+               
+               <button id="getScan" class="btn fit-parent negative app-btn">Scan code</button>
+               
+                <p class="padded-full">[[TODO:scan history]]</p>
+                
+                <ul class="list">
+                    <li class="divider">Right action</li>
+                    <li>
+                        <a href="#action" class="pull-right icon icon-edit"></a>
+                        <span class="padded-list">Item</span>
+                    </li>
+                    <li>
+                        <a href="#action" class="pull-right">Text</a>
+                        <span class="padded-list">Item</span>
+                    </li>
+                    <li>
+                        <a href="#action" class="pull-right icon icon-edit"></a>
+                        <a href="#item" class="padded-list">Link</a>
+                    </li>
+                    <li>
+                        <a href="#action" class="pull-right">Text</a>
+                        <a href="#item" class="padded-list">Link</a>
+                    </li>
+                </ul>
+            
+            </div>
+        </readcode>
+        
+        <gencode data-page="true">
+            <header class="header-bar">
+                <a class="btn icon icon-close pull-right" href="#" data-panel-close="true"></a>
+                <h1 class="title pull-left">Generate & Share QR Code</h1>
+            </header>
+
+            <div class="content">
+                <p class="padded-full">[[TODO:gen&share]]</p>
+                <button id="genCode" class="btn fit-parent  app-btn">Generate code</button>
+                <div id="qrcode"></div>
+            </div>
+        </gencode>
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script src="js/phonon.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/qrcode.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
